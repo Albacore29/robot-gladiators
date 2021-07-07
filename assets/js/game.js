@@ -21,9 +21,12 @@ if (promptFight === "skip" || promptFight === "SKIP") {
 
     //if yes (true), leave fight
     if (confirmSkip) {
-        window.alert(playerName + " has decided to skip this fight. Goodbye! ");
-         //subtract money from playerMoney for skipping
-         playerMoney = Math.max(0, playerMoney - 10);
+        window.alert(playerInfo.name + " has decided to skip this fight. Goodbye! ");
+         //subtract money from playerMoney for skipping, but don't let them go into the negative
+         playerInfo.money = Math.max(0, playerInfo.money - 10);
+
+         // return true if player wants to leave
+         return true;
          console.log("playerMoney", playerMoney)
          break;
      }
